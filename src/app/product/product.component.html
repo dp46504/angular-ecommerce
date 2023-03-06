@@ -1,0 +1,15 @@
+<ng-container *ngIf="product$ | async as product; else loading">
+  <h2>{{ product.title }}</h2>
+  <h5>{{ product.category }}</h5>
+  <h4>{{ product.description }}</h4>
+  <h4>{{ product.price | currency }}</h4>
+  <h4>{{ product.discountPercentage / 100 | percent : "1.1-2" }} OFF!!!</h4>
+  <h3>{{ product.rating }}/5.00</h3>
+  <h3>{{ product.stock }} in stock</h3>
+  <h3>Brand: {{ product.brand }}</h3>
+  <img *ngFor="let picture of product.images" [src]="picture" />
+</ng-container>
+
+<ng-template #loading>
+  <ngx-skeleton-loader appearance="circle"></ngx-skeleton-loader>
+</ng-template>

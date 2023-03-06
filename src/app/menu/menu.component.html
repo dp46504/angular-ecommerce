@@ -1,0 +1,14 @@
+<nav class="menu-container">
+  <div class="logo">
+    <mat-icon [inline]="true">waves</mat-icon>
+  </div>
+  <a class="link" (click)="linkClick()" [routerLink]="['homepage']">
+    HomePage
+  </a>
+  <a class="link" (click)="linkClick()" [routerLink]="['categories']"
+    >Categories</a
+  >
+  <mat-slide-toggle class="theme-toggle" (change)="changeTheme()">
+    <mat-icon>invert_colors</mat-icon>
+  </mat-slide-toggle>
+</nav>

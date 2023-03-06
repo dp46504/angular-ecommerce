@@ -1,0 +1,28 @@
+<ng-template #loading>
+  <div>
+    <mat-progress-bar color="accent" mode="indeterminate"> </mat-progress-bar>
+  </div>
+</ng-template>
+<div class="category-title">{{ category }}</div>
+
+<div
+  class="category-container"
+  *ngIf="productsResult$ | async as productsResult; else loading"
+>
+  <div class="category-row" *ngFor="let product of productsResult.products">
+    <img class="category-row-photo" src="{{ product.thumbnail }}" />
+    <div class="category-row-title">{{ product.title }}</div>
+    <div class="category-row-price">price</div>
+    <div class="category-row-discount">discount</div>
+    <div class="category-row-link">
+      <a [routerLink]="['/products/product', product.id]">Go to product</a>
+    </div>
+  </div>
+  <select [(ngModel)]="pageSize" (change)="refetch()">
+    <option *ngFor="let option of pageSizeValues" [value]="option">
+      {{ option }}
+    </option>
+  </select>
+
+  <input min="1" type="number" [(ngModel)]="page" (change)="refetch()" />
+</div>

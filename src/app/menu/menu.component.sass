@@ -1,0 +1,33 @@
+@use '@angular/material' as mat
+@import '@angular/material/theming'
+
+@mixin menu-theme($theme)
+
+    $primary: map-get($theme, primary)
+    $accent: map-get($theme, accent)
+
+    .menu-container
+        display: flex
+        align-items: center
+        justify-content: start
+        gap: 3rem
+        width: 100%
+        padding-bottom: 2rem
+        font-size: 1.5rem
+        font-weight: bold
+    
+    .theme-toggle
+        justify-self: end
+        margin-left: auto
+
+    .link
+        text-decoration: none
+        color: map-get($accent, 800)
+        transition: all 250ms
+        &:hover
+            color: map-get($accent, 400)
+            transform: scale(1.05)
+
+    .logo
+        font-size: 2rem    
+        color: map-get($accent, 800)

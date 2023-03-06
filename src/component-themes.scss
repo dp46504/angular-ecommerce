@@ -1,0 +1,9 @@
+@import "./app/menu/menu.component.sass";
+@import "./app/categories//categories.component.sass";
+@import "./app/category/category.component.sass";
+
+@mixin component-themes($theme) {
+  @include menu-theme($theme);
+  @include categories-theme($theme);
+  @include category-theme($theme);
+}

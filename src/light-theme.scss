@@ -1,0 +1,83 @@
+@use "@angular/material" as mat;
+
+$light-primary: mat.define-palette(
+  (
+    50: #e7efe4,
+    100: #c3d6bb,
+    200: #9cbb8e,
+    300: #749f61,
+    400: #568b3f,
+    500: #38761d,
+    600: #326e1a,
+    700: #2b6315,
+    800: #245911,
+    900: #17460a,
+    A100: #94ff7d,
+    A200: #6aff4a,
+    A400: #40ff17,
+    A700: #2dfc00,
+    contrast: (
+      50: #000000,
+      100: #000000,
+      200: #000000,
+      300: #000000,
+      400: #ffffff,
+      500: #ffffff,
+      600: #ffffff,
+      700: #ffffff,
+      800: #ffffff,
+      900: #ffffff,
+      A100: #000000,
+      A200: #000000,
+      A400: #000000,
+      A700: #000000,
+    ),
+  )
+);
+
+$light-accent: mat.define-palette(
+  (
+    50: #e8f0f8,
+    100: #c5daee,
+    200: #9ec2e3,
+    300: #77aad7,
+    400: #5a97cf,
+    500: #3d85c6,
+    600: #377dc0,
+    700: #2f72b9,
+    800: #2768b1,
+    900: #1a55a4,
+    A100: #dae9ff,
+    A200: #a7caff,
+    A400: #74abff,
+    A700: #5b9cff,
+    contrast: (
+      50: #000000,
+      100: #000000,
+      200: #000000,
+      300: #000000,
+      400: #000000,
+      500: #ffffff,
+      600: #ffffff,
+      700: #ffffff,
+      800: #ffffff,
+      900: #ffffff,
+      A100: #000000,
+      A200: #000000,
+      A400: #000000,
+      A700: #000000,
+    ),
+  )
+);
+
+$light-warn: mat.define-palette(mat.$red-palette);
+
+$light-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $light-primary,
+      accent: $light-accent,
+      warn: $light-warn,
+    ),
+  )
+);
