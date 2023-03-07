@@ -1,0 +1,26 @@
+@mixin row-item-skeleton-theme($theme)
+    $primary: map-get($theme,primary)
+    $accent: map-get($theme,accent)
+    .row-item-skeleton
+        background-color: map-get($primary, 100 )
+        border-radius: .25rem
+    .row-item-skeleton-loader-container
+        display: flex
+        flex-direction: column
+        gap: 2rem
+        .row-item-skeleton-container
+            display: flex
+            gap: .8rem
+            .row-item-skeleton-left-side
+                gap: .8rem
+                display: flex
+                flex-direction: column
+            .row-item-skeleton-right-side
+                gap: .8rem
+                justify-content: space-between
+                display: flex
+                flex-direction: column
+                .row-item-skeleton-right-side-cart
+                    display: flex
+                    flex-direction: row
+                    gap: .8rem

@@ -2,13 +2,30 @@
   <div class="logo">
     <mat-icon [inline]="true">waves</mat-icon>
   </div>
-  <a class="link" (click)="linkClick()" [routerLink]="['homepage']">
-    HomePage
-  </a>
+  <a class="link" (click)="linkClick()" [routerLink]="['']"> Home </a>
   <a class="link" (click)="linkClick()" [routerLink]="['categories']"
     >Categories</a
   >
-  <mat-slide-toggle class="theme-toggle" (change)="changeTheme()">
+  <!-- Cart -->
+  <div
+    *ngIf="getNOfItemsInCart(); else emptyCart"
+    class="cart"
+    [matBadge]="getNOfItemsInCart()"
+    matBadgeColor="accent"
+  >
+    <mat-icon class="cart-icon" color="primary">shopping_cart</mat-icon>
+  </div>
+  <ng-template #emptyCart>
+    <div class="cart">
+      <mat-icon class="cart-icon" color="primary">shopping_cart</mat-icon>
+    </div>
+  </ng-template>
+  <mat-slide-toggle
+    color="primary"
+    class="theme-toggle"
+    [checked]="this.theme"
+    (change)="changeTheme()"
+  >
     <mat-icon>invert_colors</mat-icon>
   </mat-slide-toggle>
 </nav>

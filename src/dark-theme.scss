@@ -1,6 +1,6 @@
 @use "@angular/material" as mat;
 
-$dark-accent: mat.define-palette(
+$dark-primary: mat.define-palette(
   (
     50: #fdf5e6,
     100: #fbe7c1,
@@ -35,28 +35,28 @@ $dark-accent: mat.define-palette(
   )
 );
 
-$dark-primary: mat.define-palette(
+$dark-accent: mat.define-palette(
   (
-    50: #e1e9eb,
-    100: #b3c8cd,
-    200: #81a4ac,
-    300: #4e808b,
-    400: #286472,
-    500: #024959,
-    600: #024251,
-    700: #013948,
-    800: #01313e,
-    900: #01212e,
-    A100: #67c9ff,
-    A200: #34b7ff,
-    A400: #01a5ff,
-    A700: #0095e6,
+    50: #f6ece1,
+    100: #e9cfb4,
+    200: #daaf83,
+    300: #cb8f51,
+    400: #bf772b,
+    500: #b45f06,
+    600: #ad5705,
+    700: #a44d04,
+    800: #9c4303,
+    900: #8c3202,
+    A100: #ffccb8,
+    A200: #ffa785,
+    A400: #ff8252,
+    A700: #ff7039,
     contrast: (
       50: #000000,
       100: #000000,
       200: #000000,
-      300: #ffffff,
-      400: #ffffff,
+      300: #000000,
+      400: #000000,
       500: #ffffff,
       600: #ffffff,
       700: #ffffff,
@@ -64,8 +64,8 @@ $dark-primary: mat.define-palette(
       900: #ffffff,
       A100: #000000,
       A200: #000000,
-      A400: #ffffff,
-      A700: #ffffff,
+      A400: #000000,
+      A700: #000000,
     ),
   )
 );

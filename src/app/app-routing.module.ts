@@ -7,16 +7,16 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { ProductComponent } from './product/product.component';
 
 const routes: Routes = [
-  {path:"homepage", pathMatch:"full", component: HomepageComponent},
-  {path: "products/:category", component: CategoryComponent},
-  {path: "products/product/:product_id", component: ProductComponent},
-  {path: "categories", component: CategoriesComponent},
-  {path:"404", component: NotfoundComponent},
-  {path: "**", redirectTo: "404"},
+  { path: '', pathMatch: 'full', component: HomepageComponent },
+  { path: 'products/:category', component: CategoryComponent },
+  { path: 'products/product/:product_id', component: ProductComponent },
+  { path: 'categories', component: CategoriesComponent },
+  { path: '404', component: NotfoundComponent },
+  { path: '**', redirectTo: '404' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

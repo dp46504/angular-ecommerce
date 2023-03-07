@@ -1,0 +1,73 @@
+<div class="item-row">
+  <div class="item-row-title-photo-container">
+    <div class="item-row-title mat-typography">
+      <h2>{{ product.title }}</h2>
+    </div>
+    <div class="item-row-photo">
+      <img src="{{ product.thumbnail }}" />
+    </div>
+  </div>
+  <div class="item-row-details-container">
+    <div class="item-row-pricing-container">
+      <div class="item-row-price mat-typograpghy">
+        <h3 class="item-row-price-old">
+          {{
+            product.price + (product.discountPercentage / 100) * product.price
+              | currency
+          }}
+        </h3>
+        <h3 class="item-row-price-new">{{ product.price | currency }}</h3>
+      </div>
+      <mat-chip-listbox class="item-row-discount">
+        <mat-chip color="accent" selected disableRipple highlighted
+          >- {{ product.discountPercentage / 100 | percent : "1.1-2" }}
+        </mat-chip>
+        <mat-chip
+          *ngIf="product.stock < 10"
+          color="warn"
+          selected
+          disableRipple
+          highlighted
+          >{{ product.stock }} left
+        </mat-chip>
+      </mat-chip-listbox>
+    </div>
+    <div class="item-row-rating">rating: {{ product.rating }}/5.00</div>
+    <div class="item-row-stock">In stock: {{ product.stock }}</div>
+    <div class="item-row-cart-operations-container">
+      <button
+        class="item-row-cart-operations-btn"
+        color="accent"
+        mat-flat-button
+        (click)="removeItemFromCart(product.id)"
+        [disabled]="!isItemInCart(product.id)"
+      >
+        -1
+      </button>
+      <div
+        class="item-row-cart-operations-quantity"
+        [matBadge]="getQuantityOfAnItemFromCart(product.id)"
+        matBadgeColor="accent"
+      >
+        <mat-icon>shopping_cart</mat-icon>
+      </div>
+      <button
+        class="item-row-cart-operations-btn"
+        color="accent"
+        mat-flat-button
+        (click)="addItemToCart(product.id)"
+      >
+        +1
+      </button>
+    </div>
+    <div>
+      <button mat-flat-button color="primary">
+        <a
+          class="item-row-link"
+          [routerLink]="['/products/product', product.id]"
+          >Check this product</a
+        >
+      </button>
+    </div>
+  </div>
+</div>

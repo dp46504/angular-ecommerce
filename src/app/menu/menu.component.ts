@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-menu',
@@ -9,12 +10,33 @@ export class MenuComponent {
   @Output()
   linkClicked: EventEmitter<any> = new EventEmitter();
 
+  constructor(private cartService: CartService) {
+    let theme = localStorage.getItem('theme')!;
+    if (!theme) {
+      localStorage.setItem('theme', 'light');
+      this.theme = false;
+    } else {
+      switch (theme) {
+        case 'light':
+          this.theme = false;
+          break;
+        case 'dark':
+          this.theme = true;
+          document.querySelector('body')?.classList.toggle('dark-theme');
+      }
+    }
+  }
+
+  theme: boolean = false;
+
   linkClick() {
     this.linkClicked.emit();
   }
 
   changeTheme() {
     document.querySelector('body')?.classList.toggle('dark-theme');
+    localStorage.setItem('theme', this.theme === false ? 'dark' : 'light');
+    this.theme = !this.theme;
   }
 
   getThemeChangeText() {
@@ -22,5 +44,8 @@ export class MenuComponent {
       .querySelector('body')
       ?.classList.contains('dark-theme');
     return isDarkModeActive ? 'light-mode' : 'dark-mode';
+  }
+  getNOfItemsInCart() {
+    return this.cartService.getNOfItemsInCart();
   }
 }

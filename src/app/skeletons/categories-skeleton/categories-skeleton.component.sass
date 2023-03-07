@@ -1,0 +1,15 @@
+@mixin categories-skeleton-theme($theme)
+    $primary: map-get($theme,primary)
+    $accent: map-get($theme,accent)
+    .categories-skeleton-container
+        width: 90%
+        gap: 2rem
+        margin: 2rem auto 0 auto
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        align-items: center  
+        & *
+            margin-top: 2rem
+            background: map-get($primary, 100 )
+            border-radius: .25rem

@@ -1,28 +1,40 @@
-<ng-template #loading>
-  <div>
-    <mat-progress-bar color="accent" mode="indeterminate"> </mat-progress-bar>
-  </div>
+<ng-template #itemRowSkeleton>
+  <app-row-item-skeleton></app-row-item-skeleton>
 </ng-template>
+
 <div class="category-title">{{ category }}</div>
 
+<div class="category-controls">
+  <mat-form-field appearance="fill">
+    <mat-label>items / page</mat-label>
+    <mat-select
+      matNativeControl
+      [(ngModel)]="pageSize"
+      (selectionChange)="refetch()"
+    >
+      <mat-option *ngFor="let option of pageSizeValues" [value]="option">
+        {{ option }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>page</mat-label>
+    <input
+      matInput
+      type="number"
+      min="1"
+      [(ngModel)]="page"
+      (change)="refetch()"
+    />
+  </mat-form-field>
+</div>
 <div
   class="category-container"
-  *ngIf="productsResult$ | async as productsResult; else loading"
+  *ngIf="productsResult$ | async as productsResult; else itemRowSkeleton"
 >
-  <div class="category-row" *ngFor="let product of productsResult.products">
-    <img class="category-row-photo" src="{{ product.thumbnail }}" />
-    <div class="category-row-title">{{ product.title }}</div>
-    <div class="category-row-price">price</div>
-    <div class="category-row-discount">discount</div>
-    <div class="category-row-link">
-      <a [routerLink]="['/products/product', product.id]">Go to product</a>
-    </div>
-  </div>
-  <select [(ngModel)]="pageSize" (change)="refetch()">
-    <option *ngFor="let option of pageSizeValues" [value]="option">
-      {{ option }}
-    </option>
-  </select>
-
-  <input min="1" type="number" [(ngModel)]="page" (change)="refetch()" />
+  <app-item-row
+    *ngFor="let product of productsResult.products"
+    [product]="product"
+  ></app-item-row>
 </div>

@@ -1,32 +1,32 @@
 @use "@angular/material" as mat;
 
-$light-primary: mat.define-palette(
+$light-accent: mat.define-palette(
   (
-    50: #e7efe4,
-    100: #c3d6bb,
-    200: #9cbb8e,
-    300: #749f61,
-    400: #568b3f,
-    500: #38761d,
-    600: #326e1a,
-    700: #2b6315,
-    800: #245911,
-    900: #17460a,
-    A100: #94ff7d,
-    A200: #6aff4a,
-    A400: #40ff17,
-    A700: #2dfc00,
+    50: #fdf5e6,
+    100: #fbe7c1,
+    200: #f9d798,
+    300: #f6c66e,
+    400: #f4ba4f,
+    500: #f2ae30,
+    600: #f0a72b,
+    700: #ee9d24,
+    800: #ec941e,
+    900: #e88413,
+    A100: #ffffff,
+    A200: #fff1e4,
+    A400: #ffd8b1,
+    A700: #ffcb97,
     contrast: (
       50: #000000,
       100: #000000,
       200: #000000,
       300: #000000,
-      400: #ffffff,
-      500: #ffffff,
-      600: #ffffff,
-      700: #ffffff,
-      800: #ffffff,
-      900: #ffffff,
+      400: #000000,
+      500: #000000,
+      600: #000000,
+      700: #000000,
+      800: #000000,
+      900: #000000,
       A100: #000000,
       A200: #000000,
       A400: #000000,
@@ -35,7 +35,7 @@ $light-primary: mat.define-palette(
   )
 );
 
-$light-accent: mat.define-palette(
+$light-primary: mat.define-palette(
   (
     50: #e8f0f8,
     100: #c5daee,
