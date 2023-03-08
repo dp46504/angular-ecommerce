@@ -31,6 +31,8 @@ import { RowItemSkeletonComponent } from './skeletons/row-item-skeleton/row-item
 import { CategoriesSkeletonComponent } from './skeletons/categories-skeleton/categories-skeleton.component';
 import { CartComponent } from './cart/cart.component';
 import { CartItemRowComponent } from './components/cart-item-row/cart-item-row.component';
+import { MatTableModule } from '@angular/material/table';
+import { CartTableSkeletonComponent } from './skeletons/cart-table-skeleton/cart-table-skeleton.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,7 @@ import { CartItemRowComponent } from './components/cart-item-row/cart-item-row.c
     CategoriesSkeletonComponent,
     CartComponent,
     CartItemRowComponent,
+    CartTableSkeletonComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +63,7 @@ import { CartItemRowComponent } from './components/cart-item-row/cart-item-row.c
         // ... list of CSS theme attributes
       },
     }),
+    MatTableModule,
     NgxSkeletonModule,
     MatSidenavModule,
     MatButtonModule,

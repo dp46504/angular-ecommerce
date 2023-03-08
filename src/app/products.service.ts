@@ -32,7 +32,7 @@ export class ProductsService {
     return result;
   }
 
-  getProductsByIds(itemIds: number[] = [1, 2, 3]): Observable<any> {
+  getProductsByIds(itemIds: number[]): Observable<any> {
     return from(itemIds).pipe(
       mergeMap((itemId: number) =>
         this.http.get(`${this.url}/products/${itemId}`)

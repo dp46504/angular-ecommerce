@@ -45,12 +45,24 @@ export class CartService {
     }
   }
 
+  deleteItem(itemIdToDelete: number) {
+    this.cartItems = this.cartItems.filter(
+      (item) => item.itemId !== itemIdToDelete
+    );
+    localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
+  }
+
   isItemInCart(itemId: number) {
     let existingEntry = this.cartItems.filter(
       (item) => item.itemId === itemId
     )[0];
     if (existingEntry) return true;
     return false;
+  }
+
+  getCartItemsIds() {
+    let ids = this.cartItems.map((item) => item.itemId);
+    return ids;
   }
 
   getQuantityOfAnItemFromCart(itemId: number) {

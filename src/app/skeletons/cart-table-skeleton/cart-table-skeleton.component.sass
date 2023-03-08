@@ -1,0 +1,13 @@
+@mixin cart-table-skeleton-theme($theme)
+    $primary: map-get($theme, primary)
+    $accent: map-get($theme, accent)
+
+    .cart-table-skeleton-container
+        display: flex
+        flex-direction: column
+        gap:1rem    
+
+    .cart-table-skeleton-rows
+        display: flex
+        justify-content: space-between
+        gap:1rem  
