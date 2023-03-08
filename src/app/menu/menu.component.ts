@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from '../services/cart.service';
 
 @Component({
@@ -10,7 +11,11 @@ export class MenuComponent {
   @Output()
   linkClicked: EventEmitter<any> = new EventEmitter();
 
-  constructor(private cartService: CartService) {
+  constructor(
+    private cartService: CartService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) {
     let theme = localStorage.getItem('theme')!;
     if (!theme) {
       localStorage.setItem('theme', 'light');
@@ -31,6 +36,10 @@ export class MenuComponent {
 
   linkClick() {
     this.linkClicked.emit();
+  }
+
+  redirectToCart() {
+    this.router.navigate(['cart']);
   }
 
   changeTheme() {

@@ -1,0 +1,7 @@
+<div class="cart-title">Cart</div>
+<div class="cart-item-list"></div>
+<div *ngIf="products$ | async as products">
+  <div *ngFor="let product of products">
+    {{ product.title }}
+  </div>
+</div>

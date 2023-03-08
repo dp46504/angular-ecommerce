@@ -1,0 +1,9 @@
+@mixin cart-theme($theme)
+    $primary: map-get($theme,primary)
+    $accent: map-get($theme,accent)
+    .cart-title
+        font-size: 3.5rem
+        font-weight: bold
+        text-transform: capitalize
+        color: map-get($primary,800 )
+    .cart-item-list

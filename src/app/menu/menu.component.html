@@ -10,13 +10,14 @@
   <div
     *ngIf="getNOfItemsInCart(); else emptyCart"
     class="cart"
+    (click)="redirectToCart()"
     [matBadge]="getNOfItemsInCart()"
     matBadgeColor="accent"
   >
     <mat-icon class="cart-icon" color="primary">shopping_cart</mat-icon>
   </div>
   <ng-template #emptyCart>
-    <div class="cart">
+    <div class="cart" (click)="redirectToCart()">
       <mat-icon class="cart-icon" color="primary">shopping_cart</mat-icon>
     </div>
   </ng-template>

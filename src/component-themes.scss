@@ -4,6 +4,7 @@
 @import "./app/components/item-row/item-row.component.sass";
 @import "./app/skeletons/row-item-skeleton/row-item-skeleton.component.sass";
 @import "./app/skeletons/categories-skeleton/categories-skeleton.component.sass";
+@import "./app/cart/cart.component.sass";
 @mixin component-themes($theme) {
   @include menu-theme($theme);
   @include categories-theme($theme);
@@ -11,4 +12,5 @@
   @include item-row-theme($theme);
   @include row-item-skeleton-theme($theme);
   @include categories-skeleton-theme($theme);
+  @include cart-theme($theme);
 }

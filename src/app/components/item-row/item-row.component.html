@@ -42,14 +42,11 @@
         (click)="removeItemFromCart(product.id)"
         [disabled]="!isItemInCart(product.id)"
       >
-        -1
+        -
       </button>
-      <div
-        class="item-row-cart-operations-quantity"
-        [matBadge]="getQuantityOfAnItemFromCart(product.id)"
-        matBadgeColor="accent"
-      >
-        <mat-icon>shopping_cart</mat-icon>
+
+      <div class="item-row-cart-operations-quantity">
+        {{ getQuantityOfAnItemFromCart(product.id) }}
       </div>
       <button
         class="item-row-cart-operations-btn"
@@ -57,7 +54,7 @@
         mat-flat-button
         (click)="addItemToCart(product.id)"
       >
-        +1
+        +
       </button>
     </div>
     <div>

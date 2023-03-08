@@ -29,6 +29,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ItemRowComponent } from './components/item-row/item-row.component';
 import { RowItemSkeletonComponent } from './skeletons/row-item-skeleton/row-item-skeleton.component';
 import { CategoriesSkeletonComponent } from './skeletons/categories-skeleton/categories-skeleton.component';
+import { CartComponent } from './cart/cart.component';
+import { CartItemRowComponent } from './components/cart-item-row/cart-item-row.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import { CategoriesSkeletonComponent } from './skeletons/categories-skeleton/cat
     ItemRowComponent,
     RowItemSkeletonComponent,
     CategoriesSkeletonComponent,
+    CartComponent,
+    CartItemRowComponent,
   ],
   imports: [
     BrowserModule,
