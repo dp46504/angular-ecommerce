@@ -1,6 +1,11 @@
 <div class="cart-title">Cart</div>
-<div class="cart-item-list"></div>
+<div class="cart-content-container">
 <div *ngIf="products$ | async as products; else cartTableSkeleton">
+  <div *ngIf="products.length===0; else table" class="mat-typography">
+    <div class="cart-empty-text" color="primary">Cart is empty</div>
+  </div>
+  <ng-template #table>
+
   <table
     mat-table
     [dataSource]="wrapDataToTableFormat(products)"
@@ -74,7 +79,15 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
   </table>
+</ng-template>
 </div>
 
-<app-cart-table-skeleton></app-cart-table-skeleton>
-<ng-template #cartTableSkeleton> </ng-template>
+<ng-template #cartTableSkeleton> 
+  
+  <app-cart-table-skeleton/>
+</ng-template>
+</div>
+
+
+
+
