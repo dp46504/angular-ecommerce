@@ -33,6 +33,7 @@ import { CartComponent } from './cart/cart.component';
 import { CartItemRowComponent } from './components/cart-item-row/cart-item-row.component';
 import { MatTableModule } from '@angular/material/table';
 import { CartTableSkeletonComponent } from './skeletons/cart-table-skeleton/cart-table-skeleton.component';
+import { MtxTooltipModule } from '@ng-matero/extensions/tooltip';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { CartTableSkeletonComponent } from './skeletons/cart-table-skeleton/cart
     MatChipsModule,
     MatBadgeModule,
     MatSnackBarModule,
+    MtxTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

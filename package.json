@@ -20,6 +20,7 @@
     "@angular/platform-browser": "^15.2.0",
     "@angular/platform-browser-dynamic": "^15.2.0",
     "@angular/router": "^15.2.0",
+    "@ng-matero/extensions": "^15.2.1",
     "angular-rating-star": "^1.0.4",
     "angular-star-rating": "^6.0.0",
     "ngx-skeleton": "^15.0.0",
