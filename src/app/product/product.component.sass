@@ -1,0 +1,102 @@
+@mixin columnFlex
+    display: flex
+    flex-direction: column
+    @media screen and (max-width: 600px)
+        justify-content: center
+        align-items: center
+        text-align: center
+@mixin rowFlex
+    display: flex
+    flex-direction: row
+    @media screen and (max-width: 600px)
+        justify-content: center
+        align-items: center
+        text-align: center
+    
+
+    
+@mixin product-theme($theme)
+    $primary: map-get($theme, primary)
+    $accent: map-get($theme, accent)
+
+
+
+
+    .product-container
+        @include columnFlex
+        align-items: start
+        justify-content: start
+        gap: 3rem
+
+        .product-top
+            @include rowFlex
+            @media screen and (max-width: 600px)
+                flex-direction: column
+            gap: 3rem
+            justify-content: start
+            align-items: end
+
+            .product-left
+                @include columnFlex
+                align-items: start
+                justify-content: start
+                gap: 2rem
+
+                .product-heading
+                    @include columnFlex
+                    gap: 0.5rem
+                    font-weight: bold
+                    .product-name
+                        font-size: 3rem
+                    .product-brand
+                        font-size: 1.8rem
+
+                .product-description
+                    max-width: 60ch
+                    letter-spacing: 0.08rem
+                    line-height: 1.8rem
+
+            .product-right
+                @include columnFlex
+                gap: 0.5rem
+                .product-price
+                    font-weight: bold
+                    font-size: 3rem
+                .product-rating, .product-stock
+                    color: gray
+                    font-size: 0.8rem
+                .product-cart-actions
+                    @include rowFlex
+                    margin-top: 1.5rem
+                    gap: 1rem
+                    align-items: center
+                    .product-cart-button, .product-cart-indicator
+                        color: white
+                        font-size: 1.2rem
+                        width: 5rem
+                        aspect-ratio: 2 / 1
+                        font-weight: bold
+                        text-align: center
+                        border: none
+                        border-radius: 2rem
+                    .product-cart-indicator
+                        background: transparent
+                        color: inherit
+                        border: 0.15rem solid map-get($primary, 500)
+                        display: grid
+                        place-items: center
+
+        .product-gallery
+            @include rowFlex
+            gap: 2rem
+            flex-wrap: wrap
+            .product-image
+                width: 25rem
+                height: 15rem
+                object-fit: cover
+                border: 2px solid map-get($primary, 100 )
+                border-radius: .5rem
+                transition: object-fit 250ms
+                &:hover
+                    object-fit: contain
+        

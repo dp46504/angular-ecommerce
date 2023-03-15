@@ -1,15 +1,46 @@
-<ng-container *ngIf="product$ | async as product; else loading">
-  <h2>{{ product.title }}</h2>
-  <h5>{{ product.category }}</h5>
-  <h4>{{ product.description }}</h4>
-  <h4>{{ product.price | currency }}</h4>
-  <h4>{{ product.discountPercentage / 100 | percent : "1.1-2" }} OFF!!!</h4>
-  <h3>{{ product.rating }}/5.00</h3>
-  <h3>{{ product.stock }} in stock</h3>
-  <h3>Brand: {{ product.brand }}</h3>
-  <img *ngFor="let picture of product.images" [src]="picture" />
-</ng-container>
+<div class="product-container" *ngIf="product$ | async as product; else loading">
+<!-- Product info and buttons -->
+<div class="product-top">
+<!-- Division for left and rigt side -->
+<!-- Left side - name, desc, brand, category -->
+<div class="product-left">
+  <div class="product-heading">
+    <div class="product-name">{{product.title | titlecase}}</div>
+    <div class="product-brand">{{product.brand | titlecase}} | {{product.category | titlecase}}</div >
+  </div>
+  <div class="product-description">{{product.description}}</div>
+</div>
+
+<!-- Right side - price, rating, in stock, buttons -->
+<div class="product-right">
+  <div class="product-price">{{product.price | currency}}</div>
+  <div class="product-rating">Rating: {{product.rating | number: '1.2'}}/5.00</div>
+  <div class="product-cart-actions">
+    <button class="product-cart-button"
+    mat-flat-button
+    color="primary"
+    (click)="removeItemFromCart(product.id)"
+        [disabled]="!isItemInCart(product.id)"
+    >-</button>
+    <div class="product-cart-indicator">{{ getQuantityOfAnItemFromCart(product.id) }}</div>
+    <button class="product-cart-button" 
+    color="primary"
+    mat-flat-button
+    (click)="addItemToCart(product.id)">+</button>
+  </div>
+  <div class="product-stock">In stock: {{product.stock}}</div>
+  </div>
+</div>
+
+
+
+<!-- Product photos -->
+<div class="product-gallery">
+  <img class="product-image" *ngFor="let img of product.images" [src]="img">
+</div>
+  
+</div>
 
 <ng-template #loading>
-  <ngx-skeleton-loader appearance="circle"></ngx-skeleton-loader>
+  <app-product-skeleton/>
 </ng-template>

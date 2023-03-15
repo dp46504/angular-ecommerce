@@ -34,6 +34,7 @@ import { CartItemRowComponent } from './components/cart-item-row/cart-item-row.c
 import { MatTableModule } from '@angular/material/table';
 import { CartTableSkeletonComponent } from './skeletons/cart-table-skeleton/cart-table-skeleton.component';
 import { MtxTooltipModule } from '@ng-matero/extensions/tooltip';
+import { ProductSkeletonComponent } from './skeletons/product-skeleton/product-skeleton.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { MtxTooltipModule } from '@ng-matero/extensions/tooltip';
     CartComponent,
     CartItemRowComponent,
     CartTableSkeletonComponent,
+    ProductSkeletonComponent,
   ],
   imports: [
     BrowserModule,

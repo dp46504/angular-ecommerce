@@ -6,6 +6,7 @@
 @import "./app/skeletons/categories-skeleton/categories-skeleton.component.sass";
 @import "./app/cart/cart.component.sass";
 @import "./app/skeletons/cart-table-skeleton/cart-table-skeleton.component.sass";
+@import "./app/product/product.component.sass";
 @mixin component-themes($theme) {
   @include menu-theme($theme);
   @include categories-theme($theme);
@@ -15,4 +16,5 @@
   @include categories-skeleton-theme($theme);
   @include cart-theme($theme);
   @include cart-table-skeleton-theme($theme);
+  @include product-theme($theme);
 }
