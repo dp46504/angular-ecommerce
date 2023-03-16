@@ -4,7 +4,10 @@
 @import "light-theme";
 @import "dark-theme";
 @import "component-themes";
+@import "./typography.scss";
+
 @include mat.core();
+@include mat.typography-hierarchy($typography-config);
 
 html,
 body {
@@ -18,7 +21,6 @@ body {
 body {
   margin: 0;
   padding: 3rem;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
   @include mat.all-component-themes($light-theme);
   @include component-themes($light-theme);
 }

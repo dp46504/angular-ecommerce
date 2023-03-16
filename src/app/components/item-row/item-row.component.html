@@ -1,7 +1,7 @@
-<div class="item-row">
+<div class="item-row" [ngClass]="{ highlight: highlightBoolean }">
   <div class="item-row-title-photo-container">
-    <div class="item-row-title mat-typography">
-      <h2>{{ product.title }}</h2>
+    <div class="item-row-title">
+      <div class="mat-body-1">{{ product.title }}</div>
     </div>
     <div class="item-row-photo">
       <img src="{{ product.thumbnail }}" />
@@ -10,34 +10,37 @@
   <div class="item-row-details-container">
     <div class="item-row-pricing-container">
       <div class="item-row-price mat-typograpghy">
-        <h3 class="item-row-price-old">
+        <div class="item-row-price-old mat-body-2">
           {{
             product.price + (product.discountPercentage / 100) * product.price
               | currency
           }}
-        </h3>
-        <h3 class="item-row-price-new">{{ product.price | currency }}</h3>
+        </div>
+        <div class="item-row-price-new mat-body-2">
+          {{ product.price | currency }}
+        </div>
       </div>
       <mat-chip-listbox class="item-row-discount">
-        <mat-chip color="accent" selected disableRipple highlighted
-          >- {{ product.discountPercentage / 100 | percent : "1.1-2" }}
-        </mat-chip>
-        <mat-chip
-          *ngIf="product.stock < 10"
-          color="warn"
-          selected
-          disableRipple
-          highlighted
-          >{{ product.stock }} left
+        <mat-chip class="item-row-chip" selected disableRipple highlighted>
+          <div class="item-row-chip-text">{{ product.stock }} left</div>
         </mat-chip>
       </mat-chip-listbox>
     </div>
-    <div class="item-row-rating">rating: {{ product.rating }}/5.00</div>
-    <div class="item-row-stock">In stock: {{ product.stock }}</div>
+    <div class="item-row-rating">
+      <span *ngFor="let a of fullStars"
+        ><mat-icon class="item-row-star-icon">star</mat-icon></span
+      >
+      <span *ngIf="halfStar"
+        ><mat-icon class="item-row-star-icon">star_half</mat-icon></span
+      >
+      <span *ngFor="let a of emptyStars"
+        ><mat-icon class="item-row-star-icon">star_border</mat-icon></span
+      >
+    </div>
     <div class="item-row-cart-operations-container">
       <button
         class="item-row-cart-operations-btn"
-        color="accent"
+        color="primary"
         mat-flat-button
         (click)="removeItemFromCart(product.id)"
         [disabled]="!isItemInCart(product.id)"
@@ -50,21 +53,17 @@
       </div>
       <button
         class="item-row-cart-operations-btn"
-        color="accent"
+        color="primary"
         mat-flat-button
         (click)="addItemToCart(product.id)"
       >
         +
       </button>
     </div>
-    <div>
-      <button mat-flat-button color="primary">
-        <a
-          class="item-row-link"
-          [routerLink]="['/products/product', product.id]"
-          >Check this product</a
-        >
-      </button>
+    <div class="item-row-link">
+      <a [routerLink]="['/products/product', product.id]">
+        <button mat-flat-button color="primary">Check this product</button>
+      </a>
     </div>
   </div>
 </div>

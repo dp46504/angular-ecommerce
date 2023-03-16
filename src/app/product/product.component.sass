@@ -32,9 +32,10 @@
             @include rowFlex
             @media screen and (max-width: 600px)
                 flex-direction: column
-            gap: 3rem
+                gap: 3rem
+            gap: 6rem
             justify-content: start
-            align-items: end
+            align-items: center
 
             .product-left
                 @include columnFlex
@@ -94,8 +95,6 @@
                 width: 25rem
                 height: 15rem
                 object-fit: cover
-                border: 2px solid map-get($primary, 100 )
-                border-radius: .5rem
                 transition: object-fit 250ms
                 &:hover
                     object-fit: contain

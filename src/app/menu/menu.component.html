@@ -1,10 +1,12 @@
 <nav class="menu-container">
   <div class="logo">
-    <mat-icon [inline]="true">waves</mat-icon>
+    <div class="link">
+      <mat-icon [inline]="true">waves</mat-icon>
+    </div>
   </div>
-  <a class="link" (click)="linkClick()" [routerLink]="['']"> Home </a>
-  <a class="link" (click)="linkClick()" [routerLink]="['categories']"
-    >Categories</a
+  <a class="link" (click)="linkClick()" [routerLink]="['']"> Home</a>
+  <a class="link" (click)="linkClick()" [routerLink]="['categories']">
+    Categories</a
   >
   <!-- Cart -->
   <div
